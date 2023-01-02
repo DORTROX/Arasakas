@@ -1,0 +1,104 @@
+:root {
+  --greyishBlack: #1f1f1f;
+  --PX_bodymargin: 20px;
+  --PX_buttonPadding: 10px;
+  --VW_gapBtwElem: 2vw;
+  --VW_h1: 6.9vw;
+  --F_RaleWay: 'Raleway', sans-serif;
+  --F_Ubuntu: "Ubuntu", sans-serif;
+}
+
+* {
+  font-family: var(--F_Ubuntu);
+  color: white;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--greyishBlack);
+  margin: var(--PX_bodymargin);
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#hamitems {
+  display: flex;
+}
+
+#hamitems a {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+a:hover {
+  background: #af0d0d;
+}
+
+/* (C) HIDE HAMBURGER */
+#hamnav label,
+#hamburger {
+  display: none;
+}
+
+header * {
+  justify-content: center;
+  text-align: center;
+  margin: calc(var(--PX_bodymargin) + 4%);
+}
+
+.headertile h1 {
+  font-family: var(--F_RaleWay);
+  font-size: var(--VW_h1);
+}
+.headertile p {
+  font-size: 2vh;
+}
+
+#checkOutToolsButton {
+  padding: var(--PX_buttonPadding);
+  background-color: #6a1b9a;
+}
+
+@media screen and (max-width: 768px) {
+  /* (A) BREAK INTO VERTICAL MENU */
+  #header {
+    position: relative;
+  }
+
+  #hamitems {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    flex-direction: column;
+  }
+
+  #hamitems a {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #333;
+  }
+
+  /* (B) SHOW HAMBURGER ICON */
+  #hamnav label {
+    display: inline-block;
+    color: white;
+    font-style: normal;
+    font-size: 1.2em;
+    padding: 10px;
+  }
+
+  /* (C) TOGGLE SHOW/HIDE MENU */
+  #hamitems {
+    display: none;
+  }
+  #hamnav input:checked ~ #hamitems {
+    display: block;
+  }
+}
