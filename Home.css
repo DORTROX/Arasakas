@@ -1,11 +1,13 @@
 :root {
   --greyishBlack: #1f1f1f;
   --PX_bodymargin: 20px;
-  --PX_buttonPadding: 10px;
-  --VW_gapBtwElem: 2vw;
+  --VW_buttonPadding: 1vw;
+  --VW_gapBtwElem: 5vw;
+  --VW_SmallButtonsFontSize: 2vw;
   --VW_h1: 6.9vw;
   --F_RaleWay: 'Raleway', sans-serif;
   --F_Ubuntu: "Ubuntu", sans-serif;
+  --F_Kanit: 'Kanit', sans-serif;
 }
 
 * {
@@ -19,13 +21,18 @@ body::-webkit-scrollbar {
 }
 
 body {
+  background-size: cover;
+  filter: blur(0.1px);
+  margin: 0;
+  background-repeat: no-repeat;
   background-color: var(--greyishBlack);
-  margin: var(--PX_bodymargin);
 }
 
 #header {
+  z-index: 1;
   display: flex;
   justify-content: space-between;
+  margin: var(--PX_bodymargin);
 }
 
 #hamitems {
@@ -50,159 +57,159 @@ a:hover {
 }
 
 header * {
-  justify-content: center;
   text-align: center;
-  margin: calc(var(--PX_bodymargin) + 4%);
+}
+
+.headertile {
+  margin: var(--PX_bodymargin);
+  height: 80vh;
+  position: relative;
 }
 
 .headertile h1 {
+  margin: calc(var(--PX_bodymargin) + 4%);
   font-family: var(--F_RaleWay);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5) ;
   font-size: var(--VW_h1);
 }
 .headertile p {
-  font-size: 2vh;
-}
-.cascading {
-  z-index: -2;
-  position: relative;
-  width: 0;
-  height: 0;
-  border-top: 50px solid transparent;
-  border-left: 50px solid transparent;
-  filter: blur(10px);
-}
-
-.cascading img {
-  height: 40em;
-  width: 70em;
-  margin: 0;
-  position: absolute;
-  top: -30vw;
+  font-size: 1.5vw;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5) ;
+  margin-bottom: var(--VW_gapBtwElem);
 }
 
 #checkOutToolsButton {
-  padding: var(--PX_buttonPadding);
+  margin-top: var(--VW_gapBtwElem);
+  font-size: 1vw;
+  padding: var(--VW_buttonPadding);
+  border-radius: 6px;
   background-color: #6a1b9a;
 }
 
-.fancy {
-  background-color: transparent;
-  border: 2px solid #000;
-  border-radius: 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin: 0;
-  outline: none;
-  overflow: visible;
-  padding: 1.25em 2em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-transform: none;
-  transition: all 0.3s ease-in-out;
-  user-select: none;
-  font-size: 13px;
- }
- 
- .fancy::before {
-  content: " ";
-  width: 1.5625rem;
-  height: 2px;
-  background: black;
-  top: 50%;
-  left: 1.5em;
+.cascading {
+  top: 60px;
+  z-index: -1;
+  width: 100%;
   position: absolute;
-  transform: translateY(-50%);
-  transform-origin: center;
-  transition: background 0.3s linear, width 0.3s linear;
- }
- 
- .fancy .text {
-  font-size: 1.125em;
-  line-height: 1.33333em;
-  padding-left: 2em;
+}
+
+.cascading img {
   display: block;
-  text-align: left;
-  transition: all 0.3s ease-in-out;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: black;
- }
- 
- .fancy .top-key {
-  height: 2px;
-  width: 1.5625rem;
-  top: -2px;
-  left: 0.625rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  filter: blur(10px);
+}
+
+.about {
+  overflow: hidden;
+  padding: 2%;
+  background-color: #F2F2F2;
+  display: grid;
+  grid-row-gap: 2px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.desc2 h2, .desc2 p, .desc2 button{
+  float: right;
+  text-align: right;
+}
+
+.desc h2, .desc p, .desc2 h2, .desc2 p {
+  color: #262626;
+  font-family: var(--F_Kanit)
+}
+
+.desc p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.desc button,.desc2 button {
+  border-radius: 0px;
+  background-color: #0B1723;
+  transition: 0.5s all;
+}
+
+.desc button:hover, .desc2 button:hover {
+  border-radius: 20px;
+  box-shadow:  2px 2px 10px #1f1f1f;
+}
+
+.stack {
+  background-color:#101A26;
+  position: relative; 
+  border-radius: 0px;
+box-shadow:  5px 5px 10px #1f1f1f;
+}
+
+.stack img {
+  display: block;
+  margin: 0 auto;
+  width: 30vw;
+  animation: rotator 5s ease alternate-reverse infinite;
+}
+
+.stack p {
+  font-family: var(--F_RaleWay);
   position: absolute;
-  background: #e8e8e8;
-  transition: width 0.5s ease-out, left 0.3s ease-out;
- }
- 
- .fancy .bottom-key-1 {
-  height: 2px;
-  width: 1.5625rem;
-  right: 1.875rem;
-  bottom: -2px;
-  position: absolute;
-  background: #e8e8e8;
-  transition: width 0.5s ease-out, right 0.3s ease-out;
- }
- 
- .fancy .bottom-key-2 {
-  height: 2px;
-  width: 0.625rem;
-  right: 0.625rem;
-  bottom: -2px;
-  position: absolute;
-  background: #e8e8e8;
-  transition: width 0.5s ease-out, right 0.3s ease-out;
- }
- 
- .fancy:hover {
-  color: white;
-  background: black;
- }
- 
- .fancy:hover::before {
-  width: 0.9375rem;
-  background: white;
- }
- 
- .fancy:hover .text {
-  color: white;
-  padding-left: 1.5em;
- }
- 
- .fancy:hover .top-key {
-  left: -2px;
-  width: 0px;
- }
- 
- .fancy:hover .bottom-key-1,
-  .fancy:hover .bottom-key-2 {
-  right: 0;
-  width: 0;
- }
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  text-align: center;
+  font-size: 2vw;
+}
+
+
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 @media screen and (max-width: 768px) {
   /* (A) BREAK INTO VERTICAL MENU */
   #header {
     position: relative;
   }
-  .cascading img {
-    height: 15em;
-    width: 26em;
-    margin: 0;
-    position: absolute;
-    left: -100px;
-    right: 10;
-    top: -30vw;
-    /* background-repeat: repeat; */
+  
+  .headertile {
+    height: 50vh;
+  }
+
+  .headertile h1 {
+    font-size: var(--VW_h1);
+  }
+
+ .headertile p {
+    font-size: 3vh;
+  } 
+
+  #checkOutToolsButton {
+    font-size: 3vw;
+  }
+
+  #Stack{
+    display: block;
+  }
+
+  #Stack img{
+    width: 70vw;
+    border-radius: 20px;
+  }
+
+  .about {
+    grid-template-columns: repeat(1, 1fr);
   }
 
   #hamitems {
